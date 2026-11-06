@@ -1,6 +1,8 @@
 # SECA — Auditoria sequencial MemPalace → Ruflo
 Início: 2026-11-06. **Não concluída.** A auditoria integral exige inventário versionado de todos os arquivos e evidências de leitura.
 
+> **Atualização:** consultar o [estado consolidado](MEMPALACE_STATIC_AUDIT_STATUS.md). O commit está fixado e o inventário completo foi obtido e verificado na parte 14. As informações de bloqueio e cobertura abaixo preservam o registro inicial. Instalação e reprodução mencionadas no plano histórico pertencem a uma fase futura, fora da auditoria estática atual.
+
 ## Ordem obrigatória
 1. https://github.com/MemPalace/mempalace (branch `develop`; fixar SHA antes de contabilizar cobertura).
 2. https://github.com/ruvnet/ruflo (somente após concluir MemPalace).

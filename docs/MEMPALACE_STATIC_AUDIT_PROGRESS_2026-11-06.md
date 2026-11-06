@@ -1,5 +1,7 @@
 # SECA — Progresso de leitura estática MemPalace (2026-11-06)
 
+> **Registro histórico inicial.** O [estado consolidado](MEMPALACE_STATIC_AUDIT_STATUS.md) contém o commit fixado, o inventário completo e as leituras acumuladas. As pendências deste registro descrevem seu momento de elaboração.
+
 ## Escopo e integridade
 Fonte: https://github.com/MemPalace/mempalace, leitura pela integração GitHub, sem instalação, execução ou download para Termux. **SHA abaixo é SHA de blob de arquivo, não commit fixado de repositório.** Inventário completo pendente.
 
