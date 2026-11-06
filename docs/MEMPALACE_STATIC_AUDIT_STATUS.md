@@ -12,17 +12,19 @@ Este é o ponto de retomada. Os relatórios numerados preservam etapas anteriore
 - [Manifesto de caminhos e hashes](audits/mempalace-f8e3536-inventory.json).
 - [Evidências e observações da parte 14](MEMPALACE_STATIC_AUDIT_2026-11-06_PART14.md).
 - [Continuação: busca, tempo, codificação e configuração](MEMPALACE_AUDIT_LEXICAL_TIME_CODEC_CONFIG_2026-11-06.md).
+- [Continuação: persistência, caminhos e roteamento](MEMPALACE_AUDIT_PERSISTENCE_ROUTING_2026-11-06.md).
+- [Aprofundamento de SQLite, sem recontagem](MEMPALACE_STATIC_AUDIT_2026-11-06_PART15.md).
 
 | Medida | Estado verificável |
 |---|---|
 | Entradas de arquivo inventariadas | 851, incluindo um link simbólico |
 | Arquivos regulares / subdiretórios | 850 / 109 |
 | Classificação provisória por caminho e modo | 846 candidatos a texto, quatro candidatos a mídia binária, um link |
-| Novas leituras integrais no último incremento | Sete arquivos; 2881 linhas |
-| Leituras diretas com conferência documentadas nos incrementos | 13 arquivos |
+| Novas leituras integrais no último incremento | 15 arquivos; 3213 linhas |
+| Leituras diretas com conferência documentadas nos incrementos | 28 arquivos |
 | Registros anteriores de leitura até EOF | Sete arquivos, com identidade de blob conferida |
-| Caminhos distintos com registro de leitura até EOF | 20 |
-| Caminhos sem registro de leitura até EOF | 831 |
+| Caminhos distintos com registro de leitura até EOF | 35 |
+| Caminhos sem registro de leitura até EOF | 816 |
 | Auditoria semântica integral / validação em execução | Não concluídas / não realizadas nesta etapa |
 
 O inventário dos caminhos está completo. A leitura e a auditoria dos conteúdos continuam incompletas. A classificação de texto, mídia e geração é provisória; não houve inspeção de formato de toda a árvore. A contagem de leituras inclui documentação e configuração e não corresponde a um percentual de código auditado.
@@ -51,12 +53,27 @@ O inventário dos caminhos está completo. A leitura e a auditoria dos conteúdo
 | `tests/test_lexical.py` | Leitura integral na continuação; hash conferido | Testes não executados |
 | `tests/test_stored_text.py` | Leitura integral na continuação; hash conferido | Fixtures, integrações e testes não executados |
 | `tests/test_timeutil.py` | Leitura integral na continuação; hash conferido | Fixtures, integrações e testes não executados |
+| `mempalace/metadata_types.py` | Leitura integral; hash conferido | Casos extremos e chamadores |
+| `mempalace/fsio.py` | Leitura integral; hash conferido | Fallback, arquivos em crescimento e durabilidade entre plataformas |
+| `mempalace/paths.py` | Leitura integral; hash conferido | Migração de grafos e chamadores |
+| `mempalace/_env.py` | Leitura integral; hash conferido | Integração e configuração efetiva |
+| `mempalace/_once.py` | Leitura integral; hash conferido | Retenção de chaves e concorrência dos chamadores |
+| `mempalace/write_routing.py` | Leitura integral; hash conferido | Consumidores CLI e hooks |
+| `mempalace/hub_client.py` | Leitura integral; hash conferido | Registro, endpoint e autenticação do servidor |
+| `tests/test_metadata_types.py` | Leitura integral; hash conferido | Testes não executados |
+| `tests/test_env.py` | Leitura integral; hash conferido | Fixtures e testes não executados |
+| `tests/test_paths.py` | Leitura integral; hash conferido | Chamadores e testes não executados |
+| `tests/test_fsio.py` | Leitura integral; hash conferido | Casos por plataforma não executados |
+| `tests/test_fsio_writers.py` | Leitura integral; hash conferido | Módulos consumidores e testes não executados |
+| `tests/test_write_routing.py` | Leitura integral; hash conferido | Consumidores e testes não executados |
+| `tests/test_hub_client.py` | Leitura integral; hash conferido | Servidor, registro e testes não executados |
+| `tests/test_config_non_object.py` | Leitura integral; hash conferido | Fixtures e testes não executados |
 
 Conferir hashes do histórico não reproduz uma leitura anterior nem certifica suas conclusões. A releitura parcial de um arquivo já registrado até EOF deve ser anotada como aprofundamento, sem aumentar a contagem de arquivos ou apagar o registro anterior.
 
 ## Próxima sequência
 
-1. Ler `mempalace/metadata_types.py`, `mempalace/fsio.py`, `mempalace/paths.py`, `mempalace/_env.py`, `mempalace/_once.py`, `mempalace/write_routing.py`, `mempalace/hub_client.py` e os testes de configuração, no mesmo commit. Busca lexical, tempo, codec e configuração já têm leitura até EOF registrada.
+1. Ler `mempalace/server_registry.py`, `mempalace/daemon.py`, os consumidores de roteamento e `tests/test_hook_write_routing.py`, `tests/test_cli_write_routing.py`, `tests/test_config.py`, `tests/test_config_unreadable_rewrite.py`, `tests/conftest.py` e `tests/_mcp_server_helpers.py`, no mesmo commit. As dependências centrais de persistência, caminhos e política já têm leitura até EOF registrada.
 2. Cruzar buscas, temporalidade, codecs, migrações e exclusões com os respectivos testes. Não executar esses testes nesta fase.
 3. Seguir pelo manifesto para os demais módulos, testes, documentação, CI, scripts, segurança, licenças e benchmarks. Atualizar o registro por caminho; um novo relatório deve acrescentar evidência ou aprofundamento explícito.
 4. Inspecionar metadados e formatos de mídia e resolver o link simbólico sem tratá-lo como fonte Python. Datasets e modelos externos precisam de inventário separado.
@@ -66,7 +83,7 @@ Conferir hashes do histórico não reproduz uma leitura anterior nem certifica s
 
 Leitura estática, sem instalação, importação dos pacotes, execução de seus testes ou benchmarks, nem implementação a partir desses projetos. Verificações locais de JSON, hashes Git, contagem de arquivos e sintaxe dos fontes SECA são operações sobre metadados e texto; não são testes de comportamento.
 
-O desenvolvimento e os testes do código próprio SECA foram retomados em M012. Essa atividade não executa nem valida MemPalace ou Ruflo e não altera o caráter estático da auditoria de terceiros.
+O desenvolvimento e os testes do código próprio SECA foram retomados em M012 e continuam em M013 com artefatos de evidência. Essa atividade não executa nem valida MemPalace ou Ruflo e não altera o caráter estático da auditoria de terceiros.
 
 Reprodução em execução é uma fase futura distinta. Os planos antigos que mencionam instalação ou benchmarks não autorizam sua execução durante a auditoria estática atual.
 
