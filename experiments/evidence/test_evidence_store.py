@@ -1,6 +1,7 @@
 import sqlite3
 import tempfile
 import unittest
+from datetime import datetime, timezone
 from pathlib import Path
 from evidence_store import EvidenceStore
 
@@ -16,9 +17,16 @@ class EvidenceTests(unittest.TestCase):
         self.store.append("a","M011","test",{"passed":2})
         self.assertEqual(self.store.get("a")["payload"], {"passed":2})
     def test_deterministic_hash(self):
-        a = self.store.append("a","M011","test",{"b":2,"a":1})
-        b = self.store.append("b","M011","test",{"a":1,"b":2})
-        self.assertEqual(a,b)
+        stamp = datetime(2026, 11, 6, tzinfo=timezone.utc)
+        self.store.close()
+        self.store = EvidenceStore(self.path, clock=lambda: stamp)
+        other = EvidenceStore(Path(self.tmp.name) / "other.sqlite3", clock=lambda: stamp)
+        try:
+            a = self.store.append("a","M011","test",{"b":2,"a":1})
+            b = other.append("a","M011","test",{"a":1,"b":2})
+            self.assertEqual(a,b)
+        finally:
+            other.close()
     def test_duplicate_rejected(self):
         self.store.append("a","M011","test",{})
         with self.assertRaises(sqlite3.IntegrityError):

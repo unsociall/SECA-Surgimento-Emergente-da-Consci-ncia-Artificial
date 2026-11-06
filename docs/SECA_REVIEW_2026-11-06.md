@@ -2,6 +2,8 @@
 
 Data: 2026-11-06. Referência: commit `bee16c958e85c43ff6a3e6bb91cf51062de9f1bf`.
 
+> Este documento preserva a leitura dessa versão. A implementação e a validação posteriores dos pontos S001–S005 estão registradas em [M012](M012_NUMERICS_CI_EVIDENCE.md).
+
 ## Escopo verificado
 
 Foram lidos os **64 arquivos rastreados** dessa versão: fontes, testes, experimentos, resultados registrados, documentação, configuração de CI e licença. Os arquivos adicionados por esta revisão não fazem parte desse denominador. O [manifesto da revisão](audits/seca-bee16c9-review.json) registra caminhos, modos, tamanhos e hashes de blob.

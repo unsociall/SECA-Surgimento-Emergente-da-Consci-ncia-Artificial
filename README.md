@@ -34,6 +34,7 @@ Para cada experimento, buscar registrar: hipótese, versão do código, parâmet
 
 **Pesquisa e desenvolvimento inicial.** A existência de módulos simulados não constitui reprodução exata do cérebro humano, nem evidência de consciência artificial. O conhecimento científico e os recursos computacionais atuais não permitem afirmar uma reprodução integral e exata do desenvolvimento humano.
 
+- [M012 — correções numéricas, CI e integridade de evidências](docs/M012_NUMERICS_CI_EVIDENCE.md): 115 testes locais aprovados em 11 suítes. Para executar o código próprio: `python tools/run_tests.py` na raiz. A auditoria dos repositórios terceiros permanece estática.
 - [Leitura da versão atual e prioridades técnicas](docs/SECA_REVIEW_2026-11-06.md): inventário de 64 arquivos e achados estáticos sobre CI, LIF e rastreabilidade.
 - [Ponto de retomada da auditoria MemPalace → Ruflo](docs/MEMPALACE_STATIC_AUDIT_STATUS.md): inventário de 851 entradas, evidências de leitura e pendências por caminho. O inventário está completo; a auditoria dos conteúdos continua em andamento.
 
