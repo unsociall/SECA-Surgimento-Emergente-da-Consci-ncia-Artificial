@@ -31,25 +31,25 @@
   "reading_evidence": {
     "LICENSE": {
       "basis": "current_read_to_eof",
-      "evidence": "../MEMPALACE_STATIC_AUDIT_2026-11-06_PART13.md",
+      "evidence": "../MEMPALACE_STATIC_AUDIT_2026-11-06_PART14.md",
       "line_count": 21,
       "semantic_review_complete": false
     },
     "mempalace/backends/__init__.py": {
       "basis": "current_read_to_eof",
-      "evidence": "../MEMPALACE_STATIC_AUDIT_2026-11-06_PART13.md",
+      "evidence": "../MEMPALACE_STATIC_AUDIT_2026-11-06_PART14.md",
       "line_count": 101,
       "semantic_review_complete": false
     },
     "mempalace/backends/_filters.py": {
       "basis": "current_read_to_eof",
-      "evidence": "../MEMPALACE_STATIC_AUDIT_2026-11-06_PART13.md",
+      "evidence": "../MEMPALACE_STATIC_AUDIT_2026-11-06_PART14.md",
       "line_count": 128,
       "semantic_review_complete": false
     },
     "mempalace/backends/_magic.py": {
       "basis": "current_read_to_eof",
-      "evidence": "../MEMPALACE_STATIC_AUDIT_2026-11-06_PART13.md",
+      "evidence": "../MEMPALACE_STATIC_AUDIT_2026-11-06_PART14.md",
       "line_count": 212,
       "semantic_review_complete": false
     },
@@ -61,7 +61,7 @@
     },
     "mempalace/backends/registry.py": {
       "basis": "current_read_to_eof",
-      "evidence": "../MEMPALACE_STATIC_AUDIT_2026-11-06_PART13.md",
+      "evidence": "../MEMPALACE_STATIC_AUDIT_2026-11-06_PART14.md",
       "line_count": 253,
       "semantic_review_complete": false
     },
@@ -96,7 +96,7 @@
     },
     "pyproject.toml": {
       "basis": "current_read_to_eof",
-      "evidence": "../MEMPALACE_STATIC_AUDIT_2026-11-06_PART13.md",
+      "evidence": "../MEMPALACE_STATIC_AUDIT_2026-11-06_PART14.md",
       "line_count": 296,
       "semantic_review_complete": false
     },

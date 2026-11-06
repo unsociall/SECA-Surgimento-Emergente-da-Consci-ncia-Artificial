@@ -10,7 +10,7 @@ Este é o ponto de retomada. Os relatórios numerados preservam etapas anteriore
 - Commit: `f8e35362189bd0a5abf4c0df1dd5bf90ba059176`.
 - Árvore raiz: `701bc6b78262f25b2972b23ba106b30040b76aef`.
 - [Manifesto de caminhos e hashes](audits/mempalace-f8e3536-inventory.json).
-- [Evidências e observações da parte 13](MEMPALACE_STATIC_AUDIT_2026-11-06_PART13.md).
+- [Evidências e observações da parte 14](MEMPALACE_STATIC_AUDIT_2026-11-06_PART14.md).
 
 | Medida | Estado verificável |
 |---|---|
@@ -36,12 +36,12 @@ O inventário dos caminhos está completo. A leitura e a auditoria dos conteúdo
 | `tests/test_knowledge_graph.py` | EOF informado na parte 8; blob coincide | Cruzamento de casos e implementação |
 | `tests/test_backend_conformance.py` | EOF informado na parte 8; blob coincide | Cruzamento de contratos e casos negativos |
 | `tests/test_sqlite_exact_backend.py` | EOF informado na parte 8; blob coincide | Cruzamento dos testes de concorrência e manutenção |
-| `LICENSE` | Leitura integral na parte 13; hash recalculado | Licenças de dependências e dados separadas |
-| `pyproject.toml` | Leitura integral na parte 13; hash recalculado | Lockfiles e dependências transitivas |
-| `mempalace/backends/__init__.py` | Leitura integral na parte 13; hash recalculado | Cadeia de importações dos backends |
-| `mempalace/backends/registry.py` | Leitura integral na parte 13; hash recalculado | Reentrância e descoberta de plugins |
-| `mempalace/backends/_magic.py` | Leitura integral na parte 13; hash recalculado | Ciclo de vida de conexões e portabilidade |
-| `mempalace/backends/_filters.py` | Leitura integral na parte 13; hash recalculado | Tipos de operandos e equivalência com filtros SQL |
+| `LICENSE` | Leitura integral na parte 14; hash recalculado | Licenças de dependências e dados separadas |
+| `pyproject.toml` | Leitura integral na parte 14; hash recalculado | Lockfiles e dependências transitivas |
+| `mempalace/backends/__init__.py` | Leitura integral na parte 14; hash recalculado | Cadeia de importações dos backends |
+| `mempalace/backends/registry.py` | Leitura integral na parte 14; hash recalculado | Reentrância e descoberta de plugins |
+| `mempalace/backends/_magic.py` | Leitura integral na parte 14; hash recalculado | Ciclo de vida de conexões e portabilidade |
+| `mempalace/backends/_filters.py` | Leitura integral na parte 14; hash recalculado | Tipos de operandos e equivalência com filtros SQL |
 
 Conferir hashes do histórico não reproduz uma leitura anterior nem certifica suas conclusões. A releitura parcial de um arquivo já registrado até EOF deve ser anotada como aprofundamento, sem aumentar a contagem de arquivos ou apagar o registro anterior.
 
