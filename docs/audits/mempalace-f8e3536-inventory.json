@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "repository": "MemPalace/mempalace",
   "commit_sha": "f8e35362189bd0a5abf4c0df1dd5bf90ba059176",
   "root_tree_sha": "701bc6b78262f25b2972b23ba106b30040b76aef",
@@ -21,10 +21,11 @@
     "generated_candidates": 16
   },
   "coverage": {
-    "current_new_eof_reads": 6,
+    "new_eof_reads_last_increment": 7,
+    "verified_eof_records": 13,
     "prior_eof_records": 7,
-    "distinct_paths_with_eof_record": 13,
-    "paths_without_eof_record": 838,
+    "distinct_paths_with_eof_record": 20,
+    "paths_without_eof_record": 831,
     "semantic_audit_complete": false,
     "runtime_tests_executed_this_review": 0
   },
@@ -82,6 +83,12 @@
       ],
       "line_count": 2270
     },
+    "mempalace/config.py": {
+      "basis": "current_read_to_eof",
+      "evidence": "../MEMPALACE_AUDIT_LEXICAL_TIME_CODEC_CONFIG_2026-11-06.md",
+      "line_count": 1738,
+      "semantic_review_complete": false
+    },
     "mempalace/embedding.py": {
       "basis": "prior_reported_to_eof",
       "evidence": "../MEMPALACE_STATIC_AUDIT_2026-11-06_PART8.md",
@@ -92,6 +99,24 @@
       "basis": "prior_reported_to_eof",
       "evidence": "../MEMPALACE_STATIC_AUDIT_2026-11-06_PART8.md",
       "blob_identity_matches_inventory": true,
+      "semantic_review_complete": false
+    },
+    "mempalace/lexical.py": {
+      "basis": "current_read_to_eof",
+      "evidence": "../MEMPALACE_AUDIT_LEXICAL_TIME_CODEC_CONFIG_2026-11-06.md",
+      "line_count": 72,
+      "semantic_review_complete": false
+    },
+    "mempalace/stored_text.py": {
+      "basis": "current_read_to_eof",
+      "evidence": "../MEMPALACE_AUDIT_LEXICAL_TIME_CODEC_CONFIG_2026-11-06.md",
+      "line_count": 263,
+      "semantic_review_complete": false
+    },
+    "mempalace/timeutil.py": {
+      "basis": "current_read_to_eof",
+      "evidence": "../MEMPALACE_AUDIT_LEXICAL_TIME_CODEC_CONFIG_2026-11-06.md",
+      "line_count": 117,
       "semantic_review_complete": false
     },
     "pyproject.toml": {
@@ -112,10 +137,28 @@
       "blob_identity_matches_inventory": true,
       "semantic_review_complete": false
     },
+    "tests/test_lexical.py": {
+      "basis": "current_read_to_eof",
+      "evidence": "../MEMPALACE_AUDIT_LEXICAL_TIME_CODEC_CONFIG_2026-11-06.md",
+      "line_count": 73,
+      "semantic_review_complete": false
+    },
     "tests/test_sqlite_exact_backend.py": {
       "basis": "prior_reported_to_eof",
       "evidence": "../MEMPALACE_STATIC_AUDIT_2026-11-06_PART8.md",
       "blob_identity_matches_inventory": true,
+      "semantic_review_complete": false
+    },
+    "tests/test_stored_text.py": {
+      "basis": "current_read_to_eof",
+      "evidence": "../MEMPALACE_AUDIT_LEXICAL_TIME_CODEC_CONFIG_2026-11-06.md",
+      "line_count": 289,
+      "semantic_review_complete": false
+    },
+    "tests/test_timeutil.py": {
+      "basis": "current_read_to_eof",
+      "evidence": "../MEMPALACE_AUDIT_LEXICAL_TIME_CODEC_CONFIG_2026-11-06.md",
+      "line_count": 329,
       "semantic_review_complete": false
     }
   },

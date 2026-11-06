@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-06",
+  "source_base_commit": "a2978df399a6670672e7405544edfba05cd55c65",
+  "command": "python tools/run_tests.py",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "exit_code": 0,
+  "suite_count": 11,
+  "tests_executed": 115,
+  "suites": [
+    {
+      "directory": "experiments",
+      "tests": 8
+    },
+    {
+      "directory": "experiments/emotions",
+      "tests": 9
+    },
+    {
+      "directory": "experiments/evidence",
+      "tests": 15
+    },
+    {
+      "directory": "experiments/m004",
+      "tests": 3
+    },
+    {
+      "directory": "experiments/m005",
+      "tests": 7
+    },
+    {
+      "directory": "experiments/m006",
+      "tests": 12
+    },
+    {
+      "directory": "experiments/m007",
+      "tests": 7
+    },
+    {
+      "directory": "experiments/m008",
+      "tests": 8
+    },
+    {
+      "directory": "experiments/m009",
+      "tests": 11
+    },
+    {
+      "directory": "experiments/m010",
+      "tests": 9
+    },
+    {
+      "directory": "tests",
+      "tests": 26
+    }
+  ],
+  "source_sha256": {
+    ".github/workflows/tests.yml": "9806899c9ce74deef6957247882e9df651350cd2cb25272c6936a74619956f0e",
+    "tools/run_tests.py": "e263ecda52a99ea20b5636784ec240b975df33129b95e4c0a8e582b22754b0bf",
+    "src/seca/neuron.py": "ba9b26ec00d2edc69e7fd7cea8308051b8d63e2e97f455c2b8051cd79bc9633c",
+    "experiments/E001_lif_current_response.py": "1a999a6337fbc6e258c459d844461ce16fa003542caf20e3942977a2a268eeee",
+    "experiments/test_E001.py": "fcfcd9778b08085e61f6adc064a9840d8348d232fcfe6787012e66780c179a24",
+    "experiments/evidence/evidence_store.py": "b5f4455c6ba2faf7f9766396a49243917c0e848207ea364a0c6bddb64d08f0cf",
+    "experiments/evidence/test_evidence_store.py": "8b8931ee41e94d3990dbfc20548e62e60ccf38662140706587749865644b7991",
+    "experiments/evidence/test_evidence_integrity.py": "922384447af6cfc8b935e8008de76879b0cd92ccb8b2c838522bdf60a01e80a5",
+    "tests/test_neuron_numerics.py": "7b508d995fd8c5672d200b2077129ccb650c268ca21bfdcdf28192d71fe660bb",
+    "tests/test_test_runner.py": "830a8df2f6f96ce6fadb0584aca7659c4e0285f4c2e4f02db13509e7b7b16e0a"
+  },
+  "log": "M012_unittest_python312.log",
+  "log_sha256": "8bd8a97ce9ed00c1897e52bb19d8e97f779ee11ca8a418d9a02039c8c891c71f",
+  "third_party_tests_executed": false,
+  "biological_validation_performed": false
+}

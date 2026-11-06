@@ -1,29 +1,15 @@
-"""Reproducible LIF current-response experiment. No biological validation claimed."""
+"""Reproducible LIF current response using the SECA reference neuron."""
+import argparse
 import csv
-from dataclasses import dataclass
+from pathlib import Path
 
-@dataclass
-class LIF:
-    voltage: float = -70.0
-    rest: float = -70.0
-    threshold: float = -55.0
-    tau_ms: float = 20.0
-    refractory: int = 0
+from seca.neuron import LIFNeuron as LIF
 
-    def step(self, current: float, dt_ms: float = 1.0) -> bool:
-        if not (0 < dt_ms <= self.tau_ms):
-            raise ValueError("invalid dt")
-        if self.refractory:
-            self.refractory -= 1
-            return False
-        self.voltage += dt_ms / self.tau_ms * (self.rest - self.voltage + current)
-        if self.voltage >= self.threshold:
-            self.voltage = self.rest
-            self.refractory = 2
-            return True
-        return False
+DEFAULT_OUTPUT = Path(__file__).resolve().with_name("E001_results.csv")
 
 def run(current: float, duration_ms: int = 1000) -> dict:
+    if isinstance(duration_ms, bool) or not isinstance(duration_ms, int) or duration_ms <= 0:
+        raise ValueError("duration_ms must be a positive integer")
     neuron = LIF()
     spikes = sum(neuron.step(current) for _ in range(duration_ms))
     return {"current_arbitrary_units": current, "duration_ms": duration_ms,
@@ -32,11 +18,19 @@ def run(current: float, duration_ms: int = 1000) -> dict:
 def sweep():
     return [run(i) for i in (0, 5, 10, 14, 15, 16, 20, 30, 40)]
 
-if __name__ == "__main__":
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    args = parser.parse_args(argv)
     results = sweep()
-    with open("results_lif.csv", "w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=list(results[0]))
+    with args.output.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=list(results[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(results)
     for row in results:
         print(row)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

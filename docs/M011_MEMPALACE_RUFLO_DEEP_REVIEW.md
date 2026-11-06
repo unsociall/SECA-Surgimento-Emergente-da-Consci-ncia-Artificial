@@ -1,6 +1,8 @@
 # SECA — M011: análise de MemPalace e Ruflo e protótipo de rastreabilidade
 Data: 2026-11-06.
 
+> Atualização do protótipo de evidências: [M012](M012_NUMERICS_CI_EVIDENCE.md) adiciona checksum versionado do contexto e migração preservando registros antigos. Os testes e limites abaixo descrevem a versão inicial.
+
 ## Escopo e proveniência
 Análise de README, mapa de módulos e documentação pública. **Não houve leitura integral de todos os arquivos de ambos os repositórios, instalação ou reprodução de seus benchmarks.** Não alegar integração dos projetos completos.
 

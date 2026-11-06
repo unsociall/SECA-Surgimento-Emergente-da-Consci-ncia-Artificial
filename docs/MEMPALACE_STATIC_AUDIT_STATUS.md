@@ -11,16 +11,18 @@ Este é o ponto de retomada. Os relatórios numerados preservam etapas anteriore
 - Árvore raiz: `701bc6b78262f25b2972b23ba106b30040b76aef`.
 - [Manifesto de caminhos e hashes](audits/mempalace-f8e3536-inventory.json).
 - [Evidências e observações da parte 14](MEMPALACE_STATIC_AUDIT_2026-11-06_PART14.md).
+- [Continuação: busca, tempo, codificação e configuração](MEMPALACE_AUDIT_LEXICAL_TIME_CODEC_CONFIG_2026-11-06.md).
 
 | Medida | Estado verificável |
 |---|---|
 | Entradas de arquivo inventariadas | 851, incluindo um link simbólico |
 | Arquivos regulares / subdiretórios | 850 / 109 |
 | Classificação provisória por caminho e modo | 846 candidatos a texto, quatro candidatos a mídia binária, um link |
-| Novas leituras integrais nesta etapa | Seis arquivos |
+| Novas leituras integrais no último incremento | Sete arquivos; 2881 linhas |
+| Leituras diretas com conferência documentadas nos incrementos | 13 arquivos |
 | Registros anteriores de leitura até EOF | Sete arquivos, com identidade de blob conferida |
-| Caminhos distintos com registro de leitura até EOF | 13 |
-| Caminhos sem registro de leitura até EOF | 838 |
+| Caminhos distintos com registro de leitura até EOF | 20 |
+| Caminhos sem registro de leitura até EOF | 831 |
 | Auditoria semântica integral / validação em execução | Não concluídas / não realizadas nesta etapa |
 
 O inventário dos caminhos está completo. A leitura e a auditoria dos conteúdos continuam incompletas. A classificação de texto, mídia e geração é provisória; não houve inspeção de formato de toda a árvore. A contagem de leituras inclui documentação e configuração e não corresponde a um percentual de código auditado.
@@ -42,12 +44,19 @@ O inventário dos caminhos está completo. A leitura e a auditoria dos conteúdo
 | `mempalace/backends/registry.py` | Leitura integral na parte 14; hash recalculado | Reentrância e descoberta de plugins |
 | `mempalace/backends/_magic.py` | Leitura integral na parte 14; hash recalculado | Ciclo de vida de conexões e portabilidade |
 | `mempalace/backends/_filters.py` | Leitura integral na parte 14; hash recalculado | Tipos de operandos e equivalência com filtros SQL |
+| `mempalace/lexical.py` | Leitura integral na continuação; hash conferido | Normalização e comparação com FTS |
+| `mempalace/timeutil.py` | Leitura integral na continuação; hash conferido | Contexto de fuso dos dados legados e chamadores |
+| `mempalace/stored_text.py` | Leitura integral na continuação; hash conferido | Coerção de tipos e contratos dos lotes |
+| `mempalace/config.py` | Linhas 1–1738 até EOF; hash conferido | Persistência, helpers, fingerprint e testes de configuração |
+| `tests/test_lexical.py` | Leitura integral na continuação; hash conferido | Testes não executados |
+| `tests/test_stored_text.py` | Leitura integral na continuação; hash conferido | Fixtures, integrações e testes não executados |
+| `tests/test_timeutil.py` | Leitura integral na continuação; hash conferido | Fixtures, integrações e testes não executados |
 
 Conferir hashes do histórico não reproduz uma leitura anterior nem certifica suas conclusões. A releitura parcial de um arquivo já registrado até EOF deve ser anotada como aprofundamento, sem aumentar a contagem de arquivos ou apagar o registro anterior.
 
 ## Próxima sequência
 
-1. Ler `mempalace/lexical.py`, `mempalace/timeutil.py`, `mempalace/stored_text.py` e `mempalace/config.py`, no mesmo commit; registrar os hashes e as dependências encontradas.
+1. Ler `mempalace/metadata_types.py`, `mempalace/fsio.py`, `mempalace/paths.py`, `mempalace/_env.py`, `mempalace/_once.py`, `mempalace/write_routing.py`, `mempalace/hub_client.py` e os testes de configuração, no mesmo commit. Busca lexical, tempo, codec e configuração já têm leitura até EOF registrada.
 2. Cruzar buscas, temporalidade, codecs, migrações e exclusões com os respectivos testes. Não executar esses testes nesta fase.
 3. Seguir pelo manifesto para os demais módulos, testes, documentação, CI, scripts, segurança, licenças e benchmarks. Atualizar o registro por caminho; um novo relatório deve acrescentar evidência ou aprofundamento explícito.
 4. Inspecionar metadados e formatos de mídia e resolver o link simbólico sem tratá-lo como fonte Python. Datasets e modelos externos precisam de inventário separado.
@@ -56,6 +65,8 @@ Conferir hashes do histórico não reproduz uma leitura anterior nem certifica s
 ## Regras desta fase
 
 Leitura estática, sem instalação, importação dos pacotes, execução de seus testes ou benchmarks, nem implementação a partir desses projetos. Verificações locais de JSON, hashes Git, contagem de arquivos e sintaxe dos fontes SECA são operações sobre metadados e texto; não são testes de comportamento.
+
+O desenvolvimento e os testes do código próprio SECA foram retomados em M012. Essa atividade não executa nem valida MemPalace ou Ruflo e não altera o caráter estático da auditoria de terceiros.
 
 Reprodução em execução é uma fase futura distinta. Os planos antigos que mencionam instalação ou benchmarks não autorizam sua execução durante a auditoria estática atual.
 

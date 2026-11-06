@@ -19,6 +19,12 @@ Verificação computacional, **não validação biológica**. Sem canais iônico
 ## Próximo experimento
 Comparar passo temporal e curva f-I com implementação independente Brian2; buscar dados experimentais de referência.
 
+## Atualização M012
+
+E001 usa agora `seca.neuron.LIFNeuron`; o pacote deve estar instalado ou acessível por `PYTHONPATH`. Na raiz, executar `PYTHONPATH=src python experiments/E001_lif_current_response.py` grava `experiments/E001_results.csv`. `--output caminho.csv` permite uma saída alternativa. O caminho padrão independe do diretório atual e o CSV usa LF.
+
+O [incremento M012](../docs/M012_NUMERICS_CI_EVIDENCE.md) executou os oito testes atuais de E001, incluindo reprodução byte a byte do CSV por uma chamada da CLI a partir de outro diretório. A curva de 1 ms foi preservada. A suíte completa pode ser executada com `python tools/run_tests.py` na raiz, sem instalar dependências de terceiros.
+
 ## Referências
 - https://brian2.readthedocs.io/en/stable/
 - https://docs.neuroml.org/Userdocs/TestingNeuroMLModels.html

@@ -1,5 +1,7 @@
 # SECA — Relatório diário consolidado — 2026-11-06
 
+> Atualização posterior: o PR #9 foi integrado. O [M012](M012_NUMERICS_CI_EVIDENCE.md) implementa S001–S005, registra 115 testes locais aprovados e atualiza o MemPalace para 20 caminhos com leitura até EOF documentada. O restante deste relatório preserva a consolidação anterior.
+
 **Escopo:** informações verificadas no repositório público até esta consolidação. Assistência do ChatGPT; sem validação científica independente.
 
 ## 1. Estado da pesquisa
