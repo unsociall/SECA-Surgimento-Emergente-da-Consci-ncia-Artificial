@@ -113,7 +113,7 @@ class ArtifactTests(unittest.TestCase):
         path = self.outputs / "alias.sqlite3"
         try:
             os.link(self.database, path)
-        except (OSError, NotImplementedError) as exc:
+        except (AttributeError, OSError, NotImplementedError) as exc:
             self.skipTest(str(exc))
         for name in ("export_jsonl", "backup_sqlite"):
             with self.subTest(method=name), self.assertRaisesRegex(ValueError, "overlaps"):
@@ -126,7 +126,7 @@ class ArtifactTests(unittest.TestCase):
         path = self.outputs / "link"
         try:
             path.symlink_to(target)
-        except (OSError, NotImplementedError) as exc:
+        except (AttributeError, OSError, NotImplementedError) as exc:
             self.skipTest(str(exc))
         for name in ("export_jsonl", "backup_sqlite"):
             with self.subTest(method=name), self.assertRaisesRegex(ValueError, "symlink"):
