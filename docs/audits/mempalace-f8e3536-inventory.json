@@ -21,11 +21,11 @@
     "generated_candidates": 16
   },
   "coverage": {
-    "new_eof_reads_last_increment": 7,
-    "verified_eof_records": 13,
+    "new_eof_reads_last_increment": 15,
+    "verified_eof_records": 28,
     "prior_eof_records": 7,
-    "distinct_paths_with_eof_record": 20,
-    "paths_without_eof_record": 831,
+    "distinct_paths_with_eof_record": 35,
+    "paths_without_eof_record": 816,
     "semantic_audit_complete": false,
     "runtime_tests_executed_this_review": 0
   },
@@ -34,6 +34,18 @@
       "basis": "current_read_to_eof",
       "evidence": "../MEMPALACE_STATIC_AUDIT_2026-11-06_PART14.md",
       "line_count": 21,
+      "semantic_review_complete": false
+    },
+    "mempalace/_env.py": {
+      "basis": "current_read_to_eof",
+      "evidence": "../MEMPALACE_AUDIT_PERSISTENCE_ROUTING_2026-11-06.md",
+      "line_count": 106,
+      "semantic_review_complete": false
+    },
+    "mempalace/_once.py": {
+      "basis": "current_read_to_eof",
+      "evidence": "../MEMPALACE_AUDIT_PERSISTENCE_ROUTING_2026-11-06.md",
+      "line_count": 26,
       "semantic_review_complete": false
     },
     "mempalace/backends/__init__.py": {
@@ -95,6 +107,18 @@
       "blob_identity_matches_inventory": true,
       "semantic_review_complete": false
     },
+    "mempalace/fsio.py": {
+      "basis": "current_read_to_eof",
+      "evidence": "../MEMPALACE_AUDIT_PERSISTENCE_ROUTING_2026-11-06.md",
+      "line_count": 551,
+      "semantic_review_complete": false
+    },
+    "mempalace/hub_client.py": {
+      "basis": "current_read_to_eof",
+      "evidence": "../MEMPALACE_AUDIT_PERSISTENCE_ROUTING_2026-11-06.md",
+      "line_count": 283,
+      "semantic_review_complete": false
+    },
     "mempalace/knowledge_graph.py": {
       "basis": "prior_reported_to_eof",
       "evidence": "../MEMPALACE_STATIC_AUDIT_2026-11-06_PART8.md",
@@ -105,6 +129,18 @@
       "basis": "current_read_to_eof",
       "evidence": "../MEMPALACE_AUDIT_LEXICAL_TIME_CODEC_CONFIG_2026-11-06.md",
       "line_count": 72,
+      "semantic_review_complete": false
+    },
+    "mempalace/metadata_types.py": {
+      "basis": "current_read_to_eof",
+      "evidence": "../MEMPALACE_AUDIT_PERSISTENCE_ROUTING_2026-11-06.md",
+      "line_count": 132,
+      "semantic_review_complete": false
+    },
+    "mempalace/paths.py": {
+      "basis": "current_read_to_eof",
+      "evidence": "../MEMPALACE_AUDIT_PERSISTENCE_ROUTING_2026-11-06.md",
+      "line_count": 194,
       "semantic_review_complete": false
     },
     "mempalace/stored_text.py": {
@@ -119,6 +155,12 @@
       "line_count": 117,
       "semantic_review_complete": false
     },
+    "mempalace/write_routing.py": {
+      "basis": "current_read_to_eof",
+      "evidence": "../MEMPALACE_AUDIT_PERSISTENCE_ROUTING_2026-11-06.md",
+      "line_count": 210,
+      "semantic_review_complete": false
+    },
     "pyproject.toml": {
       "basis": "current_read_to_eof",
       "evidence": "../MEMPALACE_STATIC_AUDIT_2026-11-06_PART14.md",
@@ -131,6 +173,36 @@
       "blob_identity_matches_inventory": true,
       "semantic_review_complete": false
     },
+    "tests/test_config_non_object.py": {
+      "basis": "current_read_to_eof",
+      "evidence": "../MEMPALACE_AUDIT_PERSISTENCE_ROUTING_2026-11-06.md",
+      "line_count": 115,
+      "semantic_review_complete": false
+    },
+    "tests/test_env.py": {
+      "basis": "current_read_to_eof",
+      "evidence": "../MEMPALACE_AUDIT_PERSISTENCE_ROUTING_2026-11-06.md",
+      "line_count": 103,
+      "semantic_review_complete": false
+    },
+    "tests/test_fsio.py": {
+      "basis": "current_read_to_eof",
+      "evidence": "../MEMPALACE_AUDIT_PERSISTENCE_ROUTING_2026-11-06.md",
+      "line_count": 462,
+      "semantic_review_complete": false
+    },
+    "tests/test_fsio_writers.py": {
+      "basis": "current_read_to_eof",
+      "evidence": "../MEMPALACE_AUDIT_PERSISTENCE_ROUTING_2026-11-06.md",
+      "line_count": 187,
+      "semantic_review_complete": false
+    },
+    "tests/test_hub_client.py": {
+      "basis": "current_read_to_eof",
+      "evidence": "../MEMPALACE_AUDIT_PERSISTENCE_ROUTING_2026-11-06.md",
+      "line_count": 176,
+      "semantic_review_complete": false
+    },
     "tests/test_knowledge_graph.py": {
       "basis": "prior_reported_to_eof",
       "evidence": "../MEMPALACE_STATIC_AUDIT_2026-11-06_PART8.md",
@@ -141,6 +213,18 @@
       "basis": "current_read_to_eof",
       "evidence": "../MEMPALACE_AUDIT_LEXICAL_TIME_CODEC_CONFIG_2026-11-06.md",
       "line_count": 73,
+      "semantic_review_complete": false
+    },
+    "tests/test_metadata_types.py": {
+      "basis": "current_read_to_eof",
+      "evidence": "../MEMPALACE_AUDIT_PERSISTENCE_ROUTING_2026-11-06.md",
+      "line_count": 102,
+      "semantic_review_complete": false
+    },
+    "tests/test_paths.py": {
+      "basis": "current_read_to_eof",
+      "evidence": "../MEMPALACE_AUDIT_PERSISTENCE_ROUTING_2026-11-06.md",
+      "line_count": 144,
       "semantic_review_complete": false
     },
     "tests/test_sqlite_exact_backend.py": {
@@ -159,6 +243,12 @@
       "basis": "current_read_to_eof",
       "evidence": "../MEMPALACE_AUDIT_LEXICAL_TIME_CODEC_CONFIG_2026-11-06.md",
       "line_count": 329,
+      "semantic_review_complete": false
+    },
+    "tests/test_write_routing.py": {
+      "basis": "current_read_to_eof",
+      "evidence": "../MEMPALACE_AUDIT_PERSISTENCE_ROUTING_2026-11-06.md",
+      "line_count": 422,
       "semantic_review_complete": false
     }
   },
